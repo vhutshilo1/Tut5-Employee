@@ -65,3 +65,35 @@ public:
 private:
 	float grossSalary;
 };
+
+//class HourlyEmployee.
+class HourlyEmployee : public Employee
+{
+public:
+	HourlyEmployee(const string &staffname, const int &staffnumber)
+		: Employee(staffname, staffnumber)
+	{
+
+	}
+	//setting hourly rate
+	void setHourlyRate(float hourlyRate)
+	{
+		HourlyRate = hourlyRate < 0.0 ? 0.0 : hourlyRate;
+	}
+	//setting hours worked
+	void setHoursWorked(int hoursWorked)
+	{
+		HoursWorked = ((hoursWorked>0) && (hoursWorked <= 744)) ? hoursWorked : 0;
+	}
+	//calculating salary
+	float salary()
+	{
+		wage = HoursWorked*HourlyRate;
+		return wage;
+	}
+
+private:
+	float wage;
+	int HoursWorked;
+	float HourlyRate;
+};
