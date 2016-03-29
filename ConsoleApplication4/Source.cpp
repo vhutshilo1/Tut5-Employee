@@ -42,3 +42,26 @@ private:
 	static int numberOfStaff;
 	string staffName;
 };
+
+//class SalaryEmployee
+class SalaryEmployee :public Employee
+{
+public:
+	SalaryEmployee(const string &staffname, const int &staffnumber)
+		: Employee(staffname, staffnumber)
+	{
+
+	}//end of SalaryEmployee constructor
+
+	 //set salary.
+	void setSalary(float staffSalary)
+	{
+		grossSalary = ((staffSalary<0.0) ? 0.0 : staffSalary);
+	}
+	float salary()
+	{
+		return grossSalary;
+	}
+private:
+	float grossSalary;
+};
