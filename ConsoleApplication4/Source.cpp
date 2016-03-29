@@ -97,3 +97,41 @@ private:
 	int HoursWorked;
 	float HourlyRate;
 };
+
+//class CommissionEmployee
+class CommissionEmployee :public Employee
+{
+public:
+	CommissionEmployee(const string &staffname, int staffnumber)
+		:Employee(staffname, staffnumber)
+	{
+
+	}
+
+	//setting base salary
+	void setBaseSalary(float baseSalary)
+	{
+		BaseSalary = (baseSalary<0.0) ? 0.0 : baseSalary;
+	}
+	//setting rate
+	void setRate(float rate)
+	{
+		Rate = (rate<0.0) ? 0.0 : rate;
+	}
+
+	//setting revenue
+	void setRevenue(float revenue)
+	{
+		Revenue = (revenue<0.0) ? 0.0 : revenue;
+	}
+
+	//calculating salary
+	float salary()
+	{
+		Earnings = BaseSalary + (Rate*Revenue);
+		return Earnings;
+	}
+
+private:
+	float Rate, BaseSalary, Revenue, Earnings;
+};
